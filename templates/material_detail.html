@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ material.title }} - SIAP TKA</title>
+</head>
+<body>
+
+<a href="{% url 'learning:material_list' material.subject.slug %}">
+    ← Kembali ke materi
+</a>
+
+<h1>{{ material.title }}</h1>
+
+<p>{{ material.description }}</p>
+
+<hr>
+
+<div>
+    {{ material.content|linebreaks }}
+</div>
+
+{% if material.video_url %}
+    <hr>
+    <h2>Video Pembelajaran</h2>
+
+    <a href="{{ material.video_url }}" target="_blank">
+        Buka Video
+    </a>
+{% endif %}
+
+</body>
+</html>
